@@ -1,9 +1,10 @@
-import java.io.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
-import java.lang.Number;
+//3059937
+package Practical2;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  * 
@@ -26,9 +27,32 @@ public class FilesInOut {
         // That is, read a line, write a line, loop.
 
         // Finally, add code to read the filenames as arguments from the command line.
+    	 String inputFilename = "input.txt";
+    	 String outputFilename = "formatted.txt";
+    	 Scanner scan = null;
+         try {
+             scan = new Scanner(new File(inputFilename));
+         } catch (FileNotFoundException e) {
+             System.out.println("Input not found: " + inputFilename);
+             System.exit(1);
+         }
+         PrintWriter writer = null;
+         try {
+             writer = new PrintWriter(new File(outputFilename));
+         } catch (FileNotFoundException e) {
+             System.out.println("Output not found: " + outputFilename);
+             System.exit(1);
+         }
+         while (scan.hasNextLine()) {
+             String line = scan.nextLine();
+             // checking if the code is read properly
+             System.out.println(line);
+             
 
-        System.out.println("You need to add your own code to do anything");
+
+
+       
 
     } // main
 
-} // FilesInOut
+} }// FilesInOut
